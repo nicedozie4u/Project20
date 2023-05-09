@@ -6,7 +6,7 @@ In this project, the frontend and the backend(MySQL) of **tooling** application 
 The following outlines the steps:
 
 ## STEP 1: Creating MySQL Container For Tooling App Backend
-- Creating a custom network with a subnet dedicated for both MySQL and the Tooling application so that they connect: ` $ docker network create --subnet=172.18.0.0/24 tooling_app_network`
+- Creating a custom network with a subnet dedicated for both MySQL and the Tooling application so that they connect: ` $ docker network create --subnet=10.10.0.0/24 tooling_app_network`
 - Creating an environment variable to store the root password: `$ export MYSQL_PW=password1234`
 - Pulling the MySQL image and running the container: `$ docker run --network tooling_app_network -h mysqlserverhost --name=mysql-server -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest`
 - To verify the container is created:`$ docker ps -a`
@@ -20,46 +20,9 @@ The following outlines the steps:
 ![](./images/create%20schema.png)
 
 - Because it's not a good practice to connect to MySQL server remotely using the root user. Creating a file **create_user.sql** and adding the following code in order to create a user:
-`CREATE USER 'somex'@'%' IDENTIFIED BY 'password123'; GRANT ALL PRIVILEGES ON * . * TO 'somex'@'%';`
+`CREATE USER 'dozie'@'%' IDENTIFIED BY 'password123'; GRANT ALL PRIVILEGES ON * . * TO 'dozie'@'%';`
 - Running the script to create the new user:` $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql`
 
-![](./images/build%20tooling%20app.png)
-
-![](./images/edit%20.env.png)
-
-![](./images/edit%20db_conn.png)
-
-![](./images/rebuild%20image.png)
-
-![](./images/rerun%20container.png)
-
-![](./images/tooling%20page%20sucessful.png)
-
-![](./images/clone%20php-todo.png)
-
-![](./images/write%20Dockerfile.png)
-
-![](./images/create%20mysql%20database.png)
-
-![](./images/task1.png)
-
-![](./images/task101.png)
-
-![](./images/task102.png)
-
-![](./images/php%20todo%20successful.png)
-
-![](./images/docker%20image.png)
-
-![](./images/docker%20container.png)
-
-![](./images/chmod.png)
-
-![](./images/docker%20login.png)
-
-![](./images/docker%20login02.png)
-
-![](./images/docker%20login%2003.png)
 
 - Connecting to the MySQL server from a second container running the MySQL client utility:` $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p`
 
@@ -103,7 +66,44 @@ ENV MYSQL_DBNAME=toolingdb
 
 CMD ["start-apache"]
 ```
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/10.png)
+![](./images/build%20tooling%20app.png)
+
+![](./images/edit%20.env.png)
+
+![](./images/edit%20db_conn.png)
+
+![](./images/rebuild%20image.png)
+
+![](./images/rerun%20container.png)
+
+![](./images/tooling%20page%20sucessful.png)
+
+![](./images/clone%20php-todo.png)
+
+![](./images/write%20Dockerfile.png)
+
+![](./images/create%20mysql%20database.png)
+
+![](./images/task1.png)
+
+![](./images/task101.png)
+
+![](./images/task102.png)
+
+![](./images/php%20todo%20successful.png)
+
+![](./images/docker%20image.png)
+
+![](./images/docker%20container.png)
+
+![](./images/chmod.png)
+
+![](./images/docker%20login.png)
+
+![](./images/docker%20login02.png)
+
+![](./images/docker%20login%2003.png)
+
 
 - Running the container: ` $ docker run --network tooling_app_network -p 8085:80 -it tooling:0.0.1 `
 
