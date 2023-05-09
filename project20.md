@@ -73,12 +73,47 @@ CMD ["start-apache"]
 
 ![](./images/edit%20db_conn.png)
 
+- Running the container: ` $ docker run --network tooling_app_network -p 8085:80 -it tooling:0.0.1 `
+
 ![](./images/rebuild%20image.png)
 
 ![](./images/rerun%20container.png)
 
+- Testing the tooling app in the browser:`http://localhost:8085`
+
 ![](./images/tooling%20page%20sucessful.png)
 
+
+
+
+
+
+## STEP 4: Migrating PHP-Todo App Into A Containerized Application
+
+- Cloning the php-todo app repository https://github.com/nicedozie4u/php-todo :
+- Writing a Dockerfile for the application
+```
+FROM php:7-apache
+LABEL MAINTAINER Somex
+
+RUN apt update
+RUN apt install zip git nginx -y
+RUN docker-php-ext-install pdo_mysql mysqli
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www/html
+
+COPY . .
+RUN mv /var/www/html/.env.sample /var/www/html/.env 
+RUN chmod +x artisan
+
+RUN composer install
+RUN php artisan db:seed
+RUN php artisan key:generate
+
+CMD php artisan migrate
+ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
+```
 ![](./images/clone%20php-todo.png)
 
 ![](./images/write%20Dockerfile.png)
@@ -105,42 +140,6 @@ CMD ["start-apache"]
 
 ![](./images/docker%20login%2003.png)
 
-
-- Running the container: ` $ docker run --network tooling_app_network -p 8085:80 -it tooling:0.0.1 `
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/11.png)
-
-- Testing the tooling app in the browser:`http://localhost:8085`
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/12.png)
-
-## STEP 4: Migrating PHP-Todo App Into A Containerized Application
-
-- Cloning the php-todo app repository https://github.com/somex6/php-todo :
-- Writing a Dockerfile for the application
-```
-FROM php:7-apache
-LABEL MAINTAINER Somex
-
-RUN apt update
-RUN apt install zip git nginx -y
-RUN docker-php-ext-install pdo_mysql mysqli
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-WORKDIR /var/www/html
-
-COPY . .
-RUN mv /var/www/html/.env.sample /var/www/html/.env 
-RUN chmod +x artisan
-
-RUN composer install
-RUN php artisan db:seed
-RUN php artisan key:generate
-
-CMD php artisan migrate
-ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
-```
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/Dockerfile.png)
 
 - Creating a MySQL container for the php-todo frontend
 
