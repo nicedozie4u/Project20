@@ -23,7 +23,43 @@ The following outlines the steps:
 `CREATE USER 'somex'@'%' IDENTIFIED BY 'password123'; GRANT ALL PRIVILEGES ON * . * TO 'somex'@'%';`
 - Running the script to create the new user:` $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql`
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/5.png)
+![](./images/build%20tooling%20app.png)
+
+![](./images/edit%20.env.png)
+
+![](./images/edit%20db_conn.png)
+
+![](./images/rebuild%20image.png)
+
+![](./images/rerun%20container.png)
+
+![](./images/tooling%20page%20sucessful.png)
+
+![](./images/clone%20php-todo.png)
+
+![](./images/write%20Dockerfile.png)
+
+![](./images/create%20mysql%20database.png)
+
+![](./images/task1.png)
+
+![](./images/task101.png)
+
+![](./images/task102.png)
+
+![](./images/php%20todo%20successful.png)
+
+![](./images/docker%20image.png)
+
+![](./images/docker%20container.png)
+
+![](./images/chmod.png)
+
+![](./images/docker%20login.png)
+
+![](./images/docker%20login02.png)
+
+![](./images/docker%20login%2003.png)
 
 - Connecting to the MySQL server from a second container running the MySQL client utility:` $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p`
 
