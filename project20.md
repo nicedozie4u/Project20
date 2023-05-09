@@ -141,11 +141,8 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 
 - Running the container
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p3.png)
+![](./images/php%20todo%20run.png)
 
-- Running the **artisan migrate** command inside the php-todo container since it was ignored during the build process
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p4.png)
 
 - Testing the php-todo app in the browser
 
