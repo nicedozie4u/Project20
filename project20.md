@@ -83,7 +83,7 @@ CMD ["start-apache"]
 - Writing a Dockerfile for the application
 ```
 FROM php:7-apache
-LABEL MAINTAINER Somex
+LABEL MAINTAINER dozie
 
 RUN apt update
 RUN apt install zip git nginx -y
@@ -101,7 +101,7 @@ RUN php artisan db:seed
 RUN php artisan key:generate
 
 CMD php artisan migrate
-ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
+ENTRYPOINT php artisan serve --host 0.0.0.0 --port 8000
 ```
 ![](./images/clone%20php-todo.png)
 
