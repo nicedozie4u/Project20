@@ -36,7 +36,7 @@ The following outlines the steps:
 **Dockerfile**
 ```
 FROM php:7-apache
-LABEL MAINTAINER somex
+LABEL MAINTAINER dozie
 
 RUN docker-php-ext-install mysqli
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
@@ -50,7 +50,7 @@ COPY html /var/www
 RUN chown -R www-data:www-data /var/www
 
 ENV MYSQL_IP=db
-ENV MYSQL_USER=somex
+ENV MYSQL_USER=dozie
 ENV MYSQL_PASS=password123
 ENV MYSQL_DBNAME=toolingdb
 
