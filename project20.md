@@ -121,11 +121,7 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 
 ![](./images/chmod.png)
 
-![](./images/docker%20login.png)
 
-![](./images/docker%20login02.png)
-
-![](./images/docker%20login%2003.png)
 
 
 
@@ -151,13 +147,14 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 ## STEP 5: Pushing The Docker Image To Docker Registry
 
 - Creating a new repository in the Docker registry
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p21.png)
-
 - Logging in from the commandline and changing the name of the php-todo image and giving it a tag
 - Running the following command to push the php-todo app image to my Docker repository
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p22.png)
+![](./images/docker%20login.png)
+
+![](./images/docker%20login02.png)
+
+![](./images/docker%20login%2003.png)
 
 ## STEP 6: Running Docker Build And Docker Push on Jenkins
 
