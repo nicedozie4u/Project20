@@ -117,11 +117,7 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 
 ![](./images/task102.png)
 
-![](./images/php%20todo%20successful.png)
 
-![](./images/docker%20image.png)
-
-![](./images/docker%20container.png)
 
 ![](./images/chmod.png)
 
@@ -146,7 +142,11 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 
 - Testing the php-todo app in the browser
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p5.png)
+![](./images/php%20todo%20successful.png)
+
+![](./images/docker%20image.png)
+
+![](./images/docker%20container.png)
 
 ## STEP 5: Pushing The Docker Image To Docker Registry
 
