@@ -29,18 +29,7 @@ The following outlines the steps:
 
 
 
-## STEP 2: Preparing The Database Schema
-
-- Cloning the Tooling-app repository: ` $ git clone https://github.com/darey-devops/tooling.git`
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/7.png)
-
-- Exporting the location of the SQL file that contains data for setting up the MySQL database:` $ export tooling_db_schema=~/tooling_db_schema.sql `
-- Using the SQL script to create the database and prepare the schema:` $ docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < $tooling_db_schema`
-
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/8.png)
-
-## STEP 3: Running The Tooling App
+## STEP 2: Running The Tooling App
 
 - From the tooling app directory where the Dockerfile is, running the following command to build the docker image: `$ docker build -t tooling:0.0.1 .`
 
@@ -118,6 +107,8 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 
 ![](./images/write%20Dockerfile.png)
 
+- Creating a MySQL container for the php-todo frontend
+
 ![](./images/create%20mysql%20database.png)
 
 ![](./images/task1.png)
@@ -141,13 +132,12 @@ ENTRYPOINT php artisan serve --host 0.0.0.0 --port 5001
 ![](./images/docker%20login%2003.png)
 
 
-- Creating a MySQL container for the php-todo frontend
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p1.png)
+
 
 - Running the build command to create the Docker image of the app
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/p2.png)
+![](./images/php%20todo%20build.png)
 
 - Running the container
 
