@@ -21,13 +21,13 @@ The following outlines the steps:
 
 ![](./images/create%20sql%20user.png)
 
+- Connecting to the MySQL server from a second container running the MySQL client utility:` $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p`
+
 ![](./images/connect%20client%20to%20sql%20server.png)
 
 ![](./images/create%20schema.png)
 
-- Connecting to the MySQL server from a second container running the MySQL client utility:` $ docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p`
 
-![](https://github.com/somex6/Darey.io-Projects/blob/main/img/project20/6.png)
 
 ## STEP 2: Preparing The Database Schema
 
